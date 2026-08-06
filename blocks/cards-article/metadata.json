@@ -1,0 +1,41 @@
+{
+  "variantName": "cards-article",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-05T06:27:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en.html",
+    "originPage": "WKND Adventures and Travel - homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "article",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + title + description",
+    "buttonCount": 0,
+    "imageCount": 1,
+    "cardsPerRow": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article/adventure teaser grids",
+      "recent posts or related content grids",
+      "clickable image + title + description card sets on light backgrounds"
+    ],
+    "notSuitableFor": [
+      "text-only card lists (use cards no-images)",
+      "single featured item (use columns or hero)",
+      "interactive/rotating content (use carousel)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en"],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-05T06:27:00.000Z",
+    "note": "Used twice on the homepage: Recent Articles grid and Where do you want to go (adventures) grid."
+  }
+}

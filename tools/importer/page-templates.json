@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "wknd-homepage",
+      "urls": [
+        "https://wknd.site/us/en.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en.html",
+      "coverageGaps": [],
+      "description": "WKND Adventures & Travel landing page: full-bleed hero carousel, featured article band, recent articles card grid, next-adventures featured banner, and a where-do-you-want-to-go card grid.",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            ".carousel.cmp-carousel--hero",
+            "#carousel-43c8d133ed"
+          ]
+        },
+        {
+          "name": "columns-featured",
+          "instances": [
+            ".teaser.cmp-teaser--featured",
+            "#featured-teaser-home"
+          ],
+          "section": "highlight"
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            ".image-list.list .cmp-image-list"
+          ]
+        },
+        {
+          "name": "hero-overlay",
+          "instances": [
+            ".teaser.cmp-teaser--hero.cmp-teaser--imagebottom",
+            "#teaser-ef0ce278d1"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-2",
+          "name": "Featured Article",
+          "selector": [
+            ".teaser.cmp-teaser--featured",
+            "#featured-teaser-home"
+          ],
+          "style": "highlight",
+          "blocks": [
+            "columns-featured"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

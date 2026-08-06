@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-featured",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-05T06:27:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en.html",
+    "originPage": "WKND Adventures and Travel - homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + (pretitle + heading + description + CTA)",
+    "buttonCount": 1,
+    "imageCount": 1,
+    "columnCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "single featured-article callouts on a colored band",
+      "side-by-side image + rich text feature blocks",
+      "editorial highlight sections with a single CTA"
+    ],
+    "notSuitableFor": [
+      "repeating item grids (use cards)",
+      "full-bleed banners (use hero)",
+      "rotating slides (use carousel)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-05T06:27:00.000Z"
+  }
+}
