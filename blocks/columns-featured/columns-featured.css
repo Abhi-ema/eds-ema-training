@@ -1,33 +1,136 @@
+/*
+ * columns-featured — a single featured article teaser.
+ * Values extracted from computed styles of .teaser.cmp-teaser--featured
+ * on https://wknd.site/us/en.html
+ *
+ * Grey "highlight" band: in the original this is a section-level background.
+ * This project's older boilerplate aem.js does not decorate section-metadata
+ * blocks, so the band is rendered here as a full-bleed background on the block
+ * wrapper (edge-to-edge grey), with the inner content constrained to the
+ * content width — visually identical to the source's grey section band.
+ */
+
+/* full-bleed grey band behind the featured article */
+main .section .columns-featured-wrapper {
+  max-width: none;
+  padding: 60px 0;
+  background-color: var(--light-color);
+}
+
+.columns-featured {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- layout: mobile first (stacked, text above image) ---------- */
 .columns-featured > div {
   display: flex;
   flex-direction: column;
 }
 
-.columns-featured img {
+/* text cell: appears first on mobile; padding matches source content box */
+.columns-featured .columns-featured-text-col {
+  order: 0;
+  padding: 63px 36px 36px;
+}
+
+/* image cell: appears below text on mobile */
+.columns-featured .columns-featured-img-col {
+  order: 1;
+  display: flex;
+}
+
+.columns-featured .columns-featured-img-col picture {
+  display: block;
   width: 100%;
 }
 
-.columns-featured > div > div {
-  order: 1;
-}
-
-.columns-featured > div > .columns-featured-img-col {
-  order: 0;
-}
-
-.columns-featured > div > .columns-featured-img-col img {
+.columns-featured .columns-featured-img-col img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* ---------- typography ---------- */
+
+/* body copy — paragraph that follows the heading */
+.columns-featured .columns-featured-text-col h2 + p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24.5px;
+  color: var(--text-color);
+}
+
+/* title */
+.columns-featured .columns-featured-text-col h2 {
+  margin: 18px 0;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 54px;
+  color: var(--text-color);
+}
+
+/* pretitle "Featured Article" — first paragraph of the text column */
+.columns-featured .columns-featured-text-col > p:first-child {
+  margin: 0 0 13.5px;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 45px;
+  color: var(--text-color);
+}
+
+/* ---------- CTA ("Full Article") ---------- */
+
+/* plain <p><a> — not auto-buttonized in this project, so style it directly */
+.columns-featured .columns-featured-text-col > p:last-child {
+  margin: 18px 0;
+}
+
+.columns-featured .columns-featured-text-col > p:last-child a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 35px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.columns-featured .columns-featured-text-col > p:last-child a:hover,
+.columns-featured .columns-featured-text-col > p:last-child a:focus-visible {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* ---------- desktop: side-by-side, image left (~62%), text right (~38%) ---------- */
 @media (width >= 900px) {
   .columns-featured > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    flex-direction: row;
+    align-items: stretch;
   }
 
-  .columns-featured > div > div {
-    flex: 1;
-    order: unset;
+  .columns-featured .columns-featured-img-col {
+    order: 0;
+    flex: 2 1 0;
+  }
+
+  .columns-featured .columns-featured-text-col {
+    order: 0;
+    flex: 1 1 0;
   }
 }

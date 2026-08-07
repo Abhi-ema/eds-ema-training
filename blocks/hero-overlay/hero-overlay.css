@@ -1,47 +1,117 @@
+/*
+ * hero-overlay — full-bleed photo banner with a white content card.
+ * Values extracted from source: .teaser.cmp-teaser--hero.cmp-teaser--imagebottom
+ * (https://wknd.site/us/en.html)
+ *
+ * Decorated EDS DOM:
+ *   .hero-overlay > div:first-child > div > picture > img   (background photo)
+ *   .hero-overlay > div:last-child  > div > h2, p, p > a    (content card)
+ */
+
+/* Full-bleed: neutralise the section wrapper's 1200px max-width + padding */
 .hero-overlay-container .hero-overlay-wrapper {
   max-width: unset;
   padding: 0;
 }
 
 .hero-overlay {
-  position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: 0;
 }
 
-.hero-overlay h1,
-.hero-overlay h2,
-.hero-overlay h3,
-.hero-overlay h4,
-.hero-overlay h5,
-.hero-overlay h6,
-.hero-overlay p {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+/* Strip the section's default row/cell spacing */
+.hero-overlay > div,
+.hero-overlay > div > div {
+  margin: 0;
+  padding: 0;
 }
 
-.hero-overlay.no-image * {
-  color: var(--text-color);
-}
-
+/* ---- Image: full-width photo (single image in the block) ---- */
 .hero-overlay picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  display: block;
+  line-height: 0;
 }
 
 .hero-overlay img {
-  object-fit: cover;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;                  /* mobile/tablet: full image at natural ratio */
+  object-fit: cover;
+  object-position: center bottom;   /* imagebottom variant */
 }
 
-@media (width >= 900px) {
-  .hero-overlay {
-    padding: 40px 32px;
+/* ---- Content card row ---- */
+.hero-overlay > div:last-child {
+  display: flow-root;            /* BFC — source floats content, retains 18px top/bottom margins */
+  padding: 0 14px;               /* mobile inset (source: 14px) */
+}
+
+/* Serif heading (Asar) — fixed 36px at all widths, per source */
+.hero-overlay h2 {
+  margin: 18px 0 0;
+  font-family: var(--heading-font-family);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 54px;
+  color: var(--text-color);
+}
+
+/* Body copy (Source Sans Pro) */
+.hero-overlay p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  line-height: 31.5px;
+  color: var(--text-color);
+}
+
+.hero-overlay p:has(a) {
+  margin: 18px 0;
+}
+
+/* CTA "See Trip" — plain <p><a> is NOT auto-buttonised (no strong/em wrapper),
+   so the yellow button is styled directly on the anchor. */
+.hero-overlay a {
+  display: inline-block;
+  border: 0;
+  border-radius: 0;
+  padding: 14px 35px;
+  background-color: var(--accent-color);   /* #ffea00 */
+  color: var(--text-color);                /* #202020 */
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-overlay a:hover,
+.hero-overlay a:focus-visible {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* ---- Desktop (>= 1165px): tall cropped photo + overlapping white card ---- */
+@media (width >= 1165px) {
+  .hero-overlay img {
+    height: 640px;                     /* source: 40pc, cropped via object-fit */
+  }
+
+  .hero-overlay > div:last-child {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1192px;                 /* 1136px content + 2 x 28px padding */
+    min-height: 180px;
+    margin: 0 auto;
+    padding: 0 28px;
+    background-color: var(--background-color);
+  }
+
+  /* Overlap the photo only when an image is present */
+  .hero-overlay:not(.no-image) > div:last-child {
+    margin-top: -180px;
   }
 }

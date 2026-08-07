@@ -29,6 +29,24 @@ const TransformHook = {
 };
 
 export default function transform(hookName, element, payload) {
+  if (hookName === TransformHook.beforeTransform) {
+    // Standalone WKND primary CTAs ("All Articles", "All Trips") are default
+    // content, not part of a block. EDS decorateButtons only buttonizes links
+    // wrapped in <strong>/<em>, so wrap these anchors in <strong> to render them
+    // as primary buttons. Scoped to the standalone button component only — block
+    // CTAs (carousel/hero/columns) use .cmp-teaser__action-link and are untouched.
+    element.querySelectorAll('.button.cmp-button--primary a.cmp-button').forEach((a) => {
+      const { document } = payload;
+      // Reduce anchor to its text label (drop nested icon/label spans)
+      const label = a.textContent.trim();
+      a.textContent = label;
+      if (a.parentElement && a.parentElement.tagName === 'STRONG') return;
+      const strong = document.createElement('strong');
+      a.replaceWith(strong);
+      strong.appendChild(a);
+    });
+  }
+
   if (hookName === TransformHook.afterTransform) {
     WebImporter.DOMUtils.remove(element, [
       // Auto-populated experience fragments (header/footer handled by EDS auto-blocks)

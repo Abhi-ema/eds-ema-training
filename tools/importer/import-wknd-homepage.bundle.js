@@ -149,6 +149,17 @@ var CustomImportScript = (() => {
     afterTransform: "afterTransform"
   };
   function transform(hookName, element, payload) {
+    if (hookName === TransformHook.beforeTransform) {
+      element.querySelectorAll(".button.cmp-button--primary a.cmp-button").forEach((a) => {
+        const { document } = payload;
+        const label = a.textContent.trim();
+        a.textContent = label;
+        if (a.parentElement && a.parentElement.tagName === "STRONG") return;
+        const strong = document.createElement("strong");
+        a.replaceWith(strong);
+        strong.appendChild(a);
+      });
+    }
     if (hookName === TransformHook.afterTransform) {
       WebImporter.DOMUtils.remove(element, [
         // Auto-populated experience fragments (header/footer handled by EDS auto-blocks)

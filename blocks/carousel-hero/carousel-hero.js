@@ -124,6 +124,19 @@ export default async function decorate(block) {
   }
 
   rows.forEach((row, idx) => {
+    // Promote the first slide's heading to <h1>: it is the hero headline and
+    // serves as the page's primary heading. This gives the page a single top-level
+    // heading (a11y) and lets EDS derive the document <title> from it.
+    if (idx === 0) {
+      const firstHeading = row.querySelector('h2, h3, h4, h5, h6');
+      if (firstHeading && firstHeading.tagName !== 'H1') {
+        const h1 = document.createElement('h1');
+        h1.id = firstHeading.id;
+        h1.innerHTML = firstHeading.innerHTML;
+        firstHeading.replaceWith(h1);
+      }
+    }
+
     const slide = createSlide(row, idx, carouselId);
     slidesWrapper.append(slide);
 
