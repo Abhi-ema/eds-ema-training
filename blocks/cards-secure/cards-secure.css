@@ -15,6 +15,16 @@
   box-sizing: border-box;
 }
 
+/* Horizontal separator (AEM cmp-separator--space-medium) between the intro
+   text and the teaser cards: a thin rule with medium vertical spacing above
+   the first secure card. The source separator is a 1px #ebebeb rule inside a
+   ~74px-tall spacer. */
+.section .default-content-wrapper + .cards-secure-wrapper {
+  border-top: 1px solid #ebebeb;
+  margin-top: 37px;
+  padding-top: 37px;
+}
+
 @media (width >= 900px) {
   /* the section that contains the secure cards becomes a flex row so the two
      wrappers sit beside each other; non-card content keeps full width */
@@ -51,6 +61,30 @@
 /* content first, image below */
 .cards-secure .cards-secure-card-body {
   order: 0;
+  position: relative;
+  padding-left: 56px;
+}
+
+/* yellow corner ribbon (triangle) with a lock icon — members-only marker.
+   Matches the source linear-gradient triangle: transparent bottom-right half,
+   solid WKND yellow top-left half. */
+.cards-secure .cards-secure-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(to left top, transparent 0, transparent 50%, var(--accent-color) 50%, var(--accent-color) 100%);
+  z-index: 2;
+}
+
+.cards-secure .cards-secure-lock-icon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  color: var(--text-color);
 }
 
 .cards-secure .cards-secure-card-image {

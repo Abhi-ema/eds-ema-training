@@ -104,6 +104,22 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
+/* WKND section headings (default content h2/h3) carry a short yellow underline
+   accent, e.g. "Members Only", "All Articles", "Our Contributors". */
+main .default-content-wrapper > h2,
+main .default-content-wrapper > h3 {
+  padding-bottom: 12px;
+}
+
+main .default-content-wrapper > h2::after,
+main .default-content-wrapper > h3::after {
+  content: '';
+  display: block;
+  width: 84px;
+  margin-top: 12px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
 p,
 dl,
 ol,
