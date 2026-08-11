@@ -1,3 +1,41 @@
+/*
+ * FAQ page two-column layout (matches the AEM 8-col main + sidebar grid):
+ * the FAQs title/image/intro and the accordion form the main column on the
+ * left, and the "Need more help?" contact block sits as a right sidebar
+ * aligned to the top. On tablet/mobile it stacks into a single column.
+ *
+ * The section holding the accordion has three children:
+ *   [0] .default-content-wrapper  — FAQs title + hero image + intro (main)
+ *   [1] .accordion-faq-wrapper    — the accordion (main)
+ *   [2] .default-content-wrapper  — "Need more help?" (sidebar)
+ */
+@media (width >= 900px) {
+  main .section:has(> .accordion-faq-wrapper) {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    column-gap: 48px;
+    align-items: start;
+  }
+
+  /* main column: FAQs title+image+intro (row 1) and accordion (row 2) */
+  main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  main .section:has(> .accordion-faq-wrapper) > .accordion-faq-wrapper {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* right sidebar: "Need more help?" spans both rows, aligned to the top */
+  main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+  }
+}
+
 .accordion-faq details {
   border: 1px solid #dadada;
 }
