@@ -1,8 +1,10 @@
 /*
- * FAQ page two-column layout (matches the AEM 8-col main + sidebar grid):
- * the FAQs title/image/intro and the accordion form the main column on the
- * left, and the "Need more help?" contact block sits as a right sidebar
- * aligned to the top. On tablet/mobile it stacks into a single column.
+ * FAQ page two-column layout. Mirrors the source AEM 12-column grid: the main
+ * content (FAQs title/image/intro + accordion) occupies the left 8 columns,
+ * then a 1-column empty offset, and the "Need more help?" contact block sits
+ * in the right 3 columns (source: aem-GridColumn--default--3 with
+ * aem-GridColumn--offset--default--1). On tablet/mobile it stacks to a single
+ * column.
  *
  * The section holding the accordion has three children:
  *   [0] .default-content-wrapper  — FAQs title + hero image + intro (main)
@@ -12,28 +14,56 @@
 @media (width >= 900px) {
   main .section:has(> .accordion-faq-wrapper) {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-    column-gap: 48px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 30px;
     align-items: start;
+
+    /* cap and centre the grid like a standard section (max 1200 + 32px gutter) */
+    box-sizing: border-box;
+    max-width: 1264px;
+    margin-inline: auto;
+    padding: 0 32px;
   }
 
-  /* main column: FAQs title+image+intro (row 1) and accordion (row 2) */
+  /* the wrappers are now grid items — drop their own max-width/centring/gutter
+     so they fill their grid cells (padding is provided by the grid container) */
+  main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper,
+  main .section:has(> .accordion-faq-wrapper) > .accordion-faq-wrapper {
+    max-width: none;
+    margin-inline: 0;
+    padding: 0;
+  }
+
+  /* main column: FAQs title+image+intro (row 1) and accordion (row 2) span
+     the left 8 of 12 columns */
   main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:first-child {
-    grid-column: 1;
+    grid-column: 1 / span 8;
     grid-row: 1;
   }
 
   main .section:has(> .accordion-faq-wrapper) > .accordion-faq-wrapper {
-    grid-column: 1;
+    grid-column: 1 / span 8;
     grid-row: 2;
   }
 
-  /* right sidebar: "Need more help?" spans both rows, aligned to the top */
+  /* right sidebar: "Need more help?" sits in the last 3 columns (1-col offset
+     from the main content), spanning both rows and aligned to the top so its
+     heading lines up with the FAQs title, matching the source design. */
   main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-child {
-    grid-column: 2;
+    grid-column: 10 / span 3;
     grid-row: 1 / span 2;
     margin-top: 0;
   }
+}
+
+/* "Need more help?" sidebar heading: no yellow underline accent (unlike the
+   other default-content page titles), matching the source design. */
+main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-child > h3 {
+  padding-bottom: 0;
+}
+
+main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-child > h3::after {
+  content: none;
 }
 
 /* Flat accordion matching the WKND source (cmp-accordion): no box border —
