@@ -104,13 +104,17 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
-/* WKND section headings (default content h2/h3) carry a short yellow underline
-   accent, e.g. "Members Only", "All Articles", "Our Contributors". */
+/* WKND section headings and page titles (default content h1/h2/h3) carry a
+   short yellow underline accent, e.g. "FAQs", "Magazine", "Members Only",
+   "All Articles", "Our Contributors". (The homepage hero h1 lives inside the
+   carousel block, not default content, so it is unaffected.) */
+main .default-content-wrapper > h1,
 main .default-content-wrapper > h2,
 main .default-content-wrapper > h3 {
   padding-bottom: 12px;
 }
 
+main .default-content-wrapper > h1::after,
 main .default-content-wrapper > h2::after,
 main .default-content-wrapper > h3::after {
   content: '';
