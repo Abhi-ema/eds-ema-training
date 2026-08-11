@@ -1,0 +1,43 @@
+{
+  "variantName": "tabs-adventures",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-08-07T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en/adventures.html",
+    "originPage": "WKND Adventures listing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "category-filter",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "tab labels (All + categories) + per-tab adventure card grid (image-top + title + description)",
+    "buttonCount": 0,
+    "imageCount": 16,
+    "tabCount": 6,
+    "cardsPerRow": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "tabbed category filters over a set of listing items",
+      "grouping a card grid under user-selectable category tabs",
+      "listing pages where items are filtered by type/category via tabs"
+    ],
+    "notSuitableFor": [
+      "a single flat card grid with no tabs (use cards-article)",
+      "rotating slides (use carousel-hero)",
+      "collapsible Q&A (use accordion)",
+      "members-only locked teaser pairs (use cards-secure)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/adventures"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-07T00:00:00.000Z",
+    "note": "Created for the adventures page 'Current Adventures' tabbed category filter (All/Climbing/Cycling/Skiing/Surfing/Travel). Based on the Block Collection tabs block but made DA-compatible: imports only from ../../scripts/aem.js (no moveInstrumentation / scripts.js), all classes renamed to the tabs-adventures-* namespace. Card-grid layout for the per-panel adventures handled in CSS."
+  }
+}

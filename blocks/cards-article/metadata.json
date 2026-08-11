@@ -33,9 +33,9 @@
     ]
   },
   "usage": {
-    "pagesUsing": ["/us/en"],
-    "reuseCount": 2,
-    "lastUsed": "2026-08-05T06:27:00.000Z",
-    "note": "Used twice on the homepage: Recent Articles grid and Where do you want to go (adventures) grid."
+    "pagesUsing": ["/us/en", "/us/en/magazine"],
+    "reuseCount": 3,
+    "lastUsed": "2026-08-07T00:00:00.000Z",
+    "note": "Used twice on the homepage (Recent Articles grid, Where do you want to go grid) and once on the magazine page (All Articles grid)."
   }
 }

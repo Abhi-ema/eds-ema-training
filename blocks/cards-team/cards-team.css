@@ -1,0 +1,146 @@
+/*
+ * cards-team — team / people profile cards.
+ * Source: wknd.site /us/en/about-us.html "Our Contributors" (4-up) and
+ * "WKND Guides" (3-up) grids. Each card: circular avatar, name, role/skills
+ * line, and a centered row of three social-media icon links.
+ */
+
+/*
+ * Each person imports as its own cards-team block, and EDS wraps each in its
+ * own .cards-team-wrapper. Lay the section's card wrappers out with flexbox so
+ * the people sit in a responsive row (1-up mobile, 2-up tablet, then filling
+ * the row on desktop), matching the source Contributors (4) / Guides (3) grids.
+ * Default-content wrappers (headings, intros) span the full row.
+ */
+.cards-team > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section .cards-team-wrapper {
+  box-sizing: border-box;
+}
+
+@media (width >= 600px) {
+  .section:has(> .cards-team-wrapper) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px 24px;
+  }
+
+  .section:has(> .cards-team-wrapper) > .default-content-wrapper {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  /* Two per row on tablet. */
+  .section:has(> .cards-team-wrapper) > .cards-team-wrapper {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+}
+
+@media (width >= 900px) {
+  /* Desktop: let the people cards grow to fill their row. The Contributors
+     section (4 cards) settles at 4-up and the Guides section (3 cards) at
+     3-up automatically, matching the source — no per-section modifier needed. */
+  .section:has(> .cards-team-wrapper) > .cards-team-wrapper {
+    flex: 1 1 200px;
+    max-width: none;
+  }
+}
+
+.cards-team > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+}
+
+/* circular avatar */
+.cards-team .cards-team-card-image {
+  line-height: 0;
+}
+
+.cards-team .cards-team-card-image img {
+  display: block;
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cards-team .cards-team-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+}
+
+/* name */
+.cards-team .cards-team-name {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+/* role / skills line */
+.cards-team .cards-team-card-body h5,
+.cards-team .cards-team-card-body p:not(.cards-team-social) {
+  margin: 8px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+/* social icon row */
+.cards-team .cards-team-social {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.cards-team .cards-team-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  background-color: #202020;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cards-team .cards-team-social-link:hover,
+.cards-team .cards-team-social-link:focus {
+  background-color: var(--link-hover-color, #000);
+}
+
+.cards-team .cards-team-social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* keep the label available to assistive tech but visually hidden */
+.cards-team .cards-team-social-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

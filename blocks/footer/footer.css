@@ -1,20 +1,149 @@
+/* WKND footer — dark band with logo, nav, social, copyright + descriptive text */
+
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--text-color); /* #202020 dark band */
+  color: #ebebeb;
+  font-family: var(--body-font-family);
+  font-size: 14px;
 }
 
-footer .footer > div {
-  margin: auto;
+footer > div {
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: auto;
+  padding: 40px 24px;
 }
 
-footer .footer p {
+footer a:any-link {
+  color: #ebebeb;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
+
+/* ---------- main row: logo | nav | follow us + social ---------- */
+footer .footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgb(255 255 255 / 15%);
+}
+
+footer .footer-main .footer-logo {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+footer .footer-main img {
+  width: 120px;
+  height: 45px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+/* nav links */
+footer .footer-nav {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  flex: 1 1 auto;
 }
 
+footer .footer-nav a {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Follow Us heading */
+footer .footer-main h4 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  color: #f7f7f7;
+  text-transform: none;
+}
+
+/* social icons */
+footer .footer-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(255 255 255 / 40%);
+  color: #ebebeb;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+footer .footer-social a:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+footer .footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- legal / copyright block ---------- */
+footer .footer-legal {
+  padding-top: 24px;
+}
+
+footer .footer-legal p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #b8b8b8;
+}
+
+footer .footer-legal p:first-child {
+  color: #ebebeb;
+  font-size: 14px;
+}
+
+footer .footer-legal a:any-link {
+  color: #ebebeb;
+  text-decoration: underline;
+}
+
+footer .footer-legal a:hover {
+  color: var(--accent-color);
+}
+
+/* ---------- desktop ---------- */
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer > div {
+    padding: 40px 32px;
+  }
+
+  footer .footer-main {
+    flex-wrap: nowrap;
+  }
+
+  footer .footer-nav {
+    justify-content: center;
+  }
+
+  /* push Follow Us + social to the right */
+  footer .footer-main h4 {
+    margin-left: auto;
   }
 }

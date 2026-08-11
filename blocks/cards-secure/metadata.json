@@ -1,0 +1,42 @@
+{
+  "variantName": "cards-secure",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-07T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en/magazine.html",
+    "originPage": "WKND Magazine landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "members-teaser",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "(heading + description + CTA) + image-below",
+    "buttonCount": 1,
+    "imageCount": 1,
+    "cardsPerRow": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "members-only / locked teaser card pairs",
+      "two-up promotional teasers with a per-card CTA and image below the copy",
+      "content-first teaser cards where the image follows the text"
+    ],
+    "notSuitableFor": [
+      "image-on-top article teaser grids (use cards-article)",
+      "single featured side-by-side callout (use columns-featured)",
+      "full-bleed background banners (use hero-overlay)",
+      "rotating slides (use carousel-hero)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/magazine"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-07T00:00:00.000Z",
+    "note": "Created for the magazine page 'Members Only' section (Alaskan Adventure, Fly Fishing the Amazon locked teasers). Based on the local DA cards conventions — no moveInstrumentation/fetchPlaceholders."
+  }
+}

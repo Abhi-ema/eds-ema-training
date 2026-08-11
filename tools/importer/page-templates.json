@@ -56,6 +56,95 @@
           "defaultContent": []
         }
       ]
+    },
+    {
+      "name": "wknd-magazine",
+      "urls": [
+        "https://wknd.site/us/en/magazine.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en/magazine.html",
+      "coverageGaps": [],
+      "description": "WKND Magazine listing page: page title, featured article band, All Articles card grid, and a Members Only section with locked secure teaser cards.",
+      "blocks": [
+        {
+          "name": "columns-featured",
+          "instances": [
+            ".teaser.cmp-teaser--featured",
+            "#featured-article-magazine"
+          ],
+          "section": "highlight"
+        },
+        {
+          "name": "cards-article",
+          "instances": [
+            ".image-list.list .cmp-image-list"
+          ]
+        },
+        {
+          "name": "cards-secure",
+          "instances": [
+            ".teaser.cmp-teaser--secure"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wknd-adventures",
+      "urls": [
+        "https://wknd.site/us/en/adventures.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en/adventures.html",
+      "coverageGaps": [],
+      "description": "WKND Adventures listing page: page title, full-bleed hero banner with overlaid content, and a Current Adventures tabbed category filter (All/Climbing/Cycling/Skiing/Surfing/Travel) revealing adventure card grids.",
+      "blocks": [
+        {
+          "name": "hero-overlay",
+          "instances": [
+            ".teaser.cmp-teaser--hero"
+          ]
+        },
+        {
+          "name": "tabs-adventures",
+          "instances": [
+            ".cmp-tabs"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wknd-faqs",
+      "urls": [
+        "https://wknd.site/us/en/faqs.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en/faqs.html",
+      "coverageGaps": [],
+      "description": "WKND FAQs page: page title, inline hero image, intro paragraph, a collapsible Q&A accordion, and a Need More Help contact sidebar.",
+      "blocks": [
+        {
+          "name": "accordion-faq",
+          "instances": [
+            ".accordion.panelcontainer",
+            "#accordion-8d368fed37"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wknd-about",
+      "urls": [
+        "https://wknd.site/us/en/about-us.html"
+      ],
+      "representativeUrl": "https://wknd.site/us/en/about-us.html",
+      "coverageGaps": [],
+      "description": "WKND About Us page: page title, an Our Contributors team grid (4-up) and a WKND Guides team grid (3-up), each person as a profile card with circular avatar, name, role and social links.",
+      "blocks": [
+        {
+          "name": "cards-team",
+          "instances": [
+            ".cmp-experience-fragment--contributor"
+          ]
+        }
+      ]
     }
   ]
 }
