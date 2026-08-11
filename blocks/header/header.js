@@ -194,6 +194,25 @@ export default async function decorate(block) {
     }
   }
 
+  // Mark the current page's nav link as active (source: cmp-navigation__item
+  // --active + aria-current="page"). Match by pathname, ignoring the .html
+  // suffix and any /content prefix so it works on localhost and production.
+  const navSections = nav.querySelector('.nav-sections');
+  if (navSections) {
+    const normalize = (p) => (p || '')
+      .replace(/^\/content/, '')
+      .replace(/\.html$/, '')
+      .replace(/\/index$/, '')
+      .replace(/\/$/, '');
+    const here = normalize(window.location.pathname);
+    navSections.querySelectorAll('a[href]').forEach((a) => {
+      if (normalize(new URL(a.href, window.location.origin).pathname) === here) {
+        a.setAttribute('aria-current', 'page');
+        a.closest('li')?.classList.add('nav-active');
+      }
+    });
+  }
+
   // Brand: strip any button decoration from the logo link (image paths are
   // already normalized above for the whole nav).
   const navBrand = nav.querySelector('.nav-brand');

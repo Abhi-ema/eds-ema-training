@@ -467,3 +467,10 @@ header nav .nav-signin-form p {
     padding: 20px 0;
   }
 }
+
+/* active/current page link (source: cmp-navigation__item--active). Placed last
+   so it wins over the earlier nav-link rules without a specificity conflict. */
+header nav .nav-sections li.nav-active > a:any-link {
+  box-shadow: inset 0 -3px 0 0 var(--accent-color);
+  font-weight: 600;
+}
