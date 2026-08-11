@@ -66,6 +66,20 @@ main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-chil
   content: none;
 }
 
+/* "Need more help?" contact links: preserve the source hyperlink styling —
+   only "1-800-800-0000" and "@wknd.com" render as blue clickable links; the
+   surrounding text keeps the default color. Overrides the global dark link
+   color for these two links only. */
+main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-child p a:any-link {
+  color: #0563c1;
+  text-decoration: none;
+}
+
+main .section:has(> .accordion-faq-wrapper) > .default-content-wrapper:last-child p a:hover {
+  color: #0563c1;
+  text-decoration: underline;
+}
+
 /* Flat accordion matching the WKND source (cmp-accordion): no box border —
    each item carries only a 2px bottom rule; the question is an uppercase bold
    label with a +/- toggle on the right; the answer flows below with no border. */
