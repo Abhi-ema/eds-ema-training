@@ -77,8 +77,13 @@ export default async function decorate(block) {
     const heading = [...navUtility.querySelectorAll(':scope > h2')]
       .find((h) => h.textContent.trim().toLowerCase() === 'sign in');
     const welcome = navUtility.querySelector(':scope > h3');
+    // The sign-in form placeholder is authored as ":signin-form:". On localhost
+    // that stays literal text, but once published the ":name:" shorthand is
+    // converted to an icon span (<span class="icon icon-signin-form">), so match
+    // either form.
     const formToken = [...navUtility.querySelectorAll(':scope > p')]
-      .find((p) => p.textContent.trim() === ':signin-form:');
+      .find((p) => p.textContent.trim() === ':signin-form:'
+        || p.querySelector(':scope > .icon-signin-form'));
     const forgot = [...navUtility.querySelectorAll(':scope > p > a')]
       .find((a) => /forgot/i.test(a.textContent));
 
@@ -225,10 +230,14 @@ export default async function decorate(block) {
     }
   }
 
-  // Tools: replace the :search: token with a real search input built here (not in the fragment).
+  // Tools: replace the :search: token with a real search input built here (not
+  // in the fragment). Like the sign-in token, ":search:" stays literal on
+  // localhost but is published as an icon span (.icon-search), so match either.
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
-    const token = [...navTools.querySelectorAll('p')].find((p) => p.textContent.trim() === ':search:');
+    const token = [...navTools.querySelectorAll('p')]
+      .find((p) => p.textContent.trim() === ':search:'
+        || p.querySelector(':scope > .icon-search'));
     if (token) {
       const form = document.createElement('form');
       form.className = 'nav-search';
