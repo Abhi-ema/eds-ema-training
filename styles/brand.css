@@ -1,0 +1,31 @@
+/*
+ * brand.css — WKND Adventures & Travel design tokens
+ * Extracted from https://wknd.site/us/en.html
+ */
+
+:root {
+  /* fonts */
+  --heading-font-family: "Asar", georgia, "Times New Roman", times, serif;
+  --body-font-family: "Source Sans Pro", "Helvetica Neue", helvetica, arial, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #202020;
+  --link-color: #202020;
+  --link-hover-color: #000;
+  --accent-color: #ffea00; /* WKND signature yellow */
+  --light-color: #f5f5f5;
+  --dark-color: #000;
+
+  /* spacing */
+  --nav-height: 87px;
+  --content-max-width: 1200px;
+
+  /* heading sizes (desktop) */
+  --heading-size-xxl: 54px;
+  --heading-size-xl: 36px;
+  --heading-size-l: 24px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+}

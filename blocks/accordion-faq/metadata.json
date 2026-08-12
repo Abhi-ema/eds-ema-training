@@ -1,0 +1,44 @@
+{
+  "variantName": "accordion-faq",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-08-11T06:12:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en/faqs.html",
+    "originPage": "WKND FAQs page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "faq",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "collapsible question/answer pairs; each row = [ question | answer ]",
+    "buttonCount": 0,
+    "imageCount": 0,
+    "itemCount": 7
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "FAQ / Q&A sections",
+      "collapsible question/answer pairs",
+      "expandable help or support topics",
+      "compacting a list of headings with hidden detail bodies"
+    ],
+    "notSuitableFor": [
+      "tabbed category filters (use tabs-adventures)",
+      "article/adventure card grids (use cards-article)",
+      "members-only locked teaser pairs (use cards-secure)",
+      "rotating slides (use carousel-hero)",
+      "content that should be fully visible without user interaction"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/faqs"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-11T06:12:00.000Z",
+    "note": "Created for the WKND FAQs page (7 collapsible Q&A items). Based on the Block Collection accordion block but made DA-compatible: removed the moveInstrumentation/scripts.js import (imports nothing beyond native DOM APIs), all classes renamed to the accordion-faq-* namespace. Renders native <details>/<summary> so it works without JS and is accessible by default."
+  }
+}

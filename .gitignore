@@ -11,3 +11,10 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+migration-work/navigation-validation/
+migration-work/footer-validation/
+
+# Migration scratch/analysis artifacts (screenshots, cleaned HTML, downloaded
+# source images, DA upload docs) — reproducible, not part of the site source.
+migration-work/
+migration-work-*/

@@ -1,0 +1,142 @@
+/*
+ * cards-secure — "Members Only" locked teaser cards.
+ * Two side-by-side teasers (Alaskan Adventure, Fly Fishing the Amazon) with
+ * heading + description + a locked "Read More" CTA, and the image below the
+ * content. Modeled on the source .teaser.cmp-teaser--secure two-up layout.
+ */
+
+/*
+ * Each secure teaser imports as its own cards-secure block, and EDS wraps each
+ * in its own .cards-secure-wrapper. To render the two teasers side-by-side
+ * (2-up on desktop, stacked on mobile) without merging blocks, the section
+ * lays its cards-secure wrappers out with flexbox and each wrapper takes ~half.
+ */
+.section .cards-secure-wrapper {
+  box-sizing: border-box;
+}
+
+/* Horizontal separator (AEM cmp-separator--space-medium) between the intro
+   text and the teaser cards: a thin rule with medium vertical spacing above
+   the first secure card. The source separator is a 1px #ebebeb rule inside a
+   ~74px-tall spacer. */
+.section .default-content-wrapper + .cards-secure-wrapper {
+  border-top: 1px solid #ebebeb;
+  margin-top: 37px;
+  padding-top: 37px;
+}
+
+@media (width >= 900px) {
+  /* the section that contains the secure cards becomes a flex row so the two
+     wrappers sit beside each other; non-card content keeps full width */
+  .section:has(> .cards-secure-wrapper) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .section:has(> .cards-secure-wrapper) > .cards-secure-wrapper {
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+
+  /* headings/intro/separator above the cards should span the full row */
+  .section:has(> .cards-secure-wrapper) > .default-content-wrapper {
+    flex: 1 1 100%;
+  }
+}
+
+.cards-secure > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* borderless, transparent cards (source has no border/background/shadow) */
+.cards-secure > ul > li {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+/* content first, image below */
+.cards-secure .cards-secure-card-body {
+  order: 0;
+  position: relative;
+  padding-left: 56px;
+}
+
+/* yellow corner ribbon (triangle) with a lock icon — members-only marker.
+   Matches the source linear-gradient triangle: transparent bottom-right half,
+   solid WKND yellow top-left half. */
+.cards-secure .cards-secure-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(to left top, transparent 0, transparent 50%, var(--accent-color) 50%, var(--accent-color) 100%);
+  z-index: 2;
+}
+
+.cards-secure .cards-secure-lock-icon {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  color: var(--text-color);
+}
+
+.cards-secure .cards-secure-card-image {
+  order: 1;
+  margin-top: 18px;
+  line-height: 0;
+}
+
+.cards-secure .cards-secure-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* title */
+.cards-secure .cards-secure-card-body h2 {
+  margin: 0 0 12px;
+  font-family: var(--heading-font-family);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  color: var(--text-color);
+}
+
+/* description */
+.cards-secure .cards-secure-card-body p {
+  margin: 0 0 18px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24.5px;
+  color: var(--text-color);
+}
+
+/* locked "Read More" CTA — greyed out for anonymous/members-only content.
+   Works whether the CTA is a link or a plain paragraph (locked). */
+.cards-secure .cards-secure-card-body .cards-secure-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  margin: 0;
+  padding: 14px 35px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+  text-decoration: none;
+}

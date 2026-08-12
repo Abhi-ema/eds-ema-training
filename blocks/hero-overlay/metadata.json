@@ -1,0 +1,40 @@
+{
+  "variantName": "hero-overlay",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-05T06:27:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en.html",
+    "originPage": "WKND Adventures and Travel - homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-width featured trip/promo banners with overlaid content",
+      "single prominent call-to-action sections with a background image",
+      "section-introducing hero banners mid-page"
+    ],
+    "notSuitableFor": [
+      "rotating multi-slide banners (use carousel)",
+      "repeating item grids (use cards)",
+      "side-by-side text/image on a solid band (use columns)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en", "/us/en/adventures"],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-07T00:00:00.000Z",
+    "note": "Reused on the adventures page intro (full-bleed 'Experience the world with us' banner with overlaid white content card, no CTA — block handles the missing CTA gracefully)."
+  }
+}

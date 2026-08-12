@@ -1,0 +1,68 @@
+/* Block: cards-article — matched to wknd.site .cmp-image-list */
+
+.cards-article > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px 14px; /* row 2rem, column = source li padding-right */
+}
+
+@media (width >= 600px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .cards-article > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* borderless, transparent cards (source has no border/background/shadow) */
+.cards-article > ul > li {
+  background-color: transparent;
+}
+
+.cards-article .cards-article-card-image {
+  line-height: 0;
+}
+
+.cards-article > ul > li img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 13 / 10; /* source 260 x 200 */
+  object-fit: cover;
+}
+
+.cards-article .cards-article-card-body {
+  margin-top: 8px; /* source image-to-title gap ~9px (baseline removed by block img) */
+}
+
+/* title (source .cmp-image-list__item-title span) */
+.cards-article a.cards-article-title:any-link {
+  display: inline;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* description (source .cmp-image-list__item-description) */
+.cards-article .cards-article-description {
+  margin: 16px 0 0; /* 1rem */
+  color: rgb(105 105 105); /* dimgray */
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

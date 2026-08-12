@@ -1,0 +1,40 @@
+{
+  "variantName": "carousel-hero",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-08-05T06:27:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en.html",
+    "originPage": "WKND Adventures and Travel - homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + CTA",
+    "buttonCount": 1,
+    "imageCount": 1,
+    "slideCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero banners with rotating slides",
+      "landing pages with multiple featured promotions",
+      "full-bleed image carousels with overlaid content cards"
+    ],
+    "notSuitableFor": [
+      "single static banner (use hero instead)",
+      "product/article grids (use cards)",
+      "text-only rotating quotes"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-05T06:27:00.000Z"
+  }
+}

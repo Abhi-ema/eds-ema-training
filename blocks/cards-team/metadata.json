@@ -1,0 +1,44 @@
+{
+  "variantName": "cards-team",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-11T06:30:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd.site/us/en/about-us.html",
+    "originPage": "WKND About Us page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "team",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "circular avatar + name (heading) + role/skills line + row of 3 social-media icon links",
+    "buttonCount": 3,
+    "imageCount": 1,
+    "cardsPerRow": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "team / staff / contributor / people directory grids",
+      "profile cards with a circular avatar, name, role and social links",
+      "'meet the team' or 'our guides' style sections",
+      "centered person cards with a row of social-media icon buttons"
+    ],
+    "notSuitableFor": [
+      "article/adventure teaser grids with a landscape image on top (use cards-article)",
+      "members-only / locked teaser pairs with image-below-content (use cards-secure)",
+      "single featured side-by-side callout (use columns-featured)",
+      "full-bleed background banners (use hero-overlay)",
+      "rotating slides (use carousel-hero)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/about-us"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-11T06:30:00.000Z",
+    "note": "Created for the WKND About Us page 'Our Contributors' (4-up) and 'WKND Guides' (3-up) profile grids. Each source card is a contributor Experience Fragment (circular avatar + h3 name + h5 role + three social-media icon links). Based on the local DA cards conventions: imports ONLY from ../../scripts/aem.js (no moveInstrumentation / fetchPlaceholders / scripts.js). Reuses the footer's inline social SVGs so icon links render consistently. The 3-up WKND Guides grid is a .cards-team.guides modifier on the same variant (a column-count CSS tweak, not a separate block)."
+  }
+}

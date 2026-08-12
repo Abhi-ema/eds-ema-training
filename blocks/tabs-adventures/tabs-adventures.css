@@ -1,0 +1,131 @@
+/* tabs-adventures — tabbed category filter for adventure listings.
+ * Base tab UI adapted from the Block Collection "tabs" block (classes renamed
+ * to the tabs-adventures-* namespace); card-grid styling added for the
+ * adventure entries inside each panel. */
+
+/* tablist — minimal row of text tabs (matches WKND source) */
+.tabs-adventures .tabs-adventures-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 18px 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* inactive tab: transparent, dark text, uppercase */
+.tabs-adventures .tabs-adventures-list button {
+  flex: 0 0 max-content;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tabs-adventures .tabs-adventures-list button p {
+  margin: 0;
+}
+
+.tabs-adventures .tabs-adventures-list button:hover {
+  color: #000;
+}
+
+/* active tab: dark background, white text */
+.tabs-adventures .tabs-adventures-list button[aria-selected='true'] {
+  background-color: var(--text-color);
+  color: #fff;
+  cursor: default;
+}
+
+/* panel — borderless (no box), content flows directly below the tabs */
+.tabs-adventures .tabs-adventures-panel {
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+}
+
+.tabs-adventures .tabs-adventures-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* ---- Adventure card grid inside each panel ----
+ * image on top + bold uppercase title link + truncated description,
+ * mirroring the cards-article convention (light bg, borderless cards). */
+
+.tabs-adventures .tabs-adventures-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px 14px;
+}
+
+@media (width >= 600px) {
+  .tabs-adventures .tabs-adventures-panel ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 900px) {
+  .tabs-adventures .tabs-adventures-panel ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.tabs-adventures .tabs-adventures-panel li {
+  background-color: transparent;
+}
+
+.tabs-adventures .tabs-adventures-panel picture {
+  display: block;
+  line-height: 0;
+}
+
+.tabs-adventures .tabs-adventures-panel img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.tabs-adventures .tabs-adventures-panel a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* first paragraph in each card = image; second = title link + description */
+.tabs-adventures .tabs-adventures-panel li p {
+  margin: 0;
+}
+
+.tabs-adventures .tabs-adventures-panel li p:last-child {
+  margin-top: 8px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 21px;
+  color: #696969;
+}
+
+/* the title link, split onto its own line as a bold uppercase heading */
+.tabs-adventures .tabs-adventures-panel strong,
+.tabs-adventures .tabs-adventures-panel .tabs-adventures-title {
+  display: block;
+  margin: 12px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
